@@ -14,6 +14,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   easy_splash_screen: ^1.0.3
+  bordered_text: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -23,6 +24,26 @@ flutter:
 
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
     - images/
+
+  fonts:
+    - family: Montserrat_Bold
+      fonts:
+        - asset: fonts/Montserrat_Bold.ttf
+    
+    - family: Montserrat_Semi_Bold
+      fonts:
+        - asset: fonts/Montserrat_Semi_Bold.ttf
+
+    - family: Montserrat_Regular
+      fonts:
+        - asset: fonts/Montserrat_Regular.ttf
+
+    - family: Montserrat_Thin
+      fonts:
+        - asset: fonts/Montserrat_Thin.ttf
+    
+    - family: Montserrat_Light
+      fonts:
+        - asset: fonts/Montserrat_Light.ttf

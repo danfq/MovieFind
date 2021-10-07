@@ -1,4 +1,4 @@
-package com.example.moviefind
+package pt.qoding.moviefind
 
 import io.flutter.embedding.android.FlutterActivity
 

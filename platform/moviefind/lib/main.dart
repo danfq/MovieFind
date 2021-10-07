@@ -1,6 +1,7 @@
 import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'pages/home.dart';
+import 'pages/movie.dart';
 
 void main() {
   runApp(Main());
@@ -19,12 +20,18 @@ class _MainState extends State<Main> {
     return MediaQuery(
         data: MediaQueryData(),
         child: MaterialApp(
-          home: EasySplashScreen(
-            logo: Image.asset("images/logo.png"),
-            navigator: Home(),
-            backgroundColor: Colors.white,
-            durationInSeconds: 4,
-          ),
+          initialRoute: '/',
+          routes: {
+            '/': (context) => EasySplashScreen(
+                  logo: Image.asset(
+                    "images/logo.png",
+                  ),
+                  navigator: Home(),
+                  backgroundColor: Colors.white,
+                  durationInSeconds: 4,
+                ),
+            '/movie' : (context) => Movie(),
+          },
         ));
   }
 }

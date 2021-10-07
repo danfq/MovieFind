@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:moviefind/misc/credits.dart';
-import 'package:moviefind/models/input.dart';
-import 'package:moviefind/values/colors.dart';
 import 'package:moviefind/values/strings.dart';
+import 'package:moviefind/values/colors.dart';
 import 'package:moviefind/values/styles.dart';
+import 'package:moviefind/misc/credits.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Movie extends StatefulWidget {
+  const Movie({ Key? key }) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  _MovieState createState() => _MovieState();
 }
 
-class _HomeState extends State<Home> {
+class _MovieState extends State<Movie> {
   @override
   Widget build(BuildContext context) {
+
     final Size deviceParameters = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -36,15 +35,7 @@ class _HomeState extends State<Home> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Styles.borderedText(
-                Strings.textSearchTitle, Colors.white, Colors.black),
-            Input.searchInput(context),
-          ],
-        )),
+        child: Center(child: Text("Movie Data"),),
       ),
       bottomNavigationBar: Misc.bottomCredits(),
     );
