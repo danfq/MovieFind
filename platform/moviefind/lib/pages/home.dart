@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Styles.borderedText(
-                Strings.textSearchTitle, Colors.white, Colors.black),
+                Strings.textSearchTitle, Colors.white, Colors.black, 72.0),
             Input.searchInput(context),
           ],
         )),

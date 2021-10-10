@@ -30,7 +30,7 @@ class _MainState extends State<Main> {
                   backgroundColor: Colors.white,
                   durationInSeconds: 4,
                 ),
-            '/movie' : (context) => Movie(),
+            '/movie': (context) => Movie(),
           },
         ));
   }

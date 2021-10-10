@@ -19,7 +19,7 @@ def get_specific_movie_data(movie_data, movie_name):
 
 #Get Data
 def get_movie_by_name(movie_name):
-    api_url = urllib.parse.quote('https://api.themoviedb.org/3/search/movie?api_key=6c166398646860781af041180e47d130&query=' + str(movie_name)).replace("%3A", ":").replace("%3F", "?").replace("%3D", "=").replace("%26", "&")
+    api_url = urllib.parse.quote('https://api.themoviedb.org/3/search/movie?api_key=6c166398646860781af041180e47d130&query=' + str(movie_name)).replace("%3A", ":").replace("%3F", "?").replace("%3D", "=").replace("%26", "&").replace("%27", "'")
     response = urllib.request.urlopen(api_url)
     movie_data_unspecified = json.loads(response.read())
     return get_specific_movie_data(movie_data_unspecified, movie_name)
