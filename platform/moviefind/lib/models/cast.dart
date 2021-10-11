@@ -9,17 +9,18 @@ class Cast {
 
     return ListView(
       scrollDirection: Axis.horizontal,
-      children: [
-        for (var castMember in castMembers) Text(castMember.toString())
-      ],
+      children: [for (var castMember in castMembers) actorItem(castMember)],
     );
   }
 
   static Widget actorItem(dynamic actorData) {
     return Card(
-      child: Wrap(
+      child: Column(
         children: [
-          Image.network(Constants.IMG_PREFIX + actorData["profile_path"]),
+          if (actorData["profile_path"] != null)
+            Image.network(Constants.IMG_PREFIX + actorData["profile_path"])
+          else
+            Image.asset("images/no_photo_placeholder.png"),
           ListTile(
             title: Text(
               actorData["original_name"],
