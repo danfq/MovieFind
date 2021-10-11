@@ -10,10 +10,14 @@ def get_specific_movie_data(movie_data, movie_name):
         movie_data_specific = movie_data["results"][0]
 
         api_url = "https://api.themoviedb.org/3/movie/" + str(movie_data_specific["id"]) + "?api_key=6c166398646860781af041180e47d130"
-
         movie_data_all = json.loads(urllib.request.urlopen(api_url).read())
 
-        return movie_data_all
+        api_url_credits = "https://api.themoviedb.org/3/movie/" + str(movie_data_specific["id"]) + "/credits?api_key=6c166398646860781af041180e47d130"
+        movie_data_credits = json.loads(urllib.request.urlopen(api_url_credits).read())
+
+        movie_data_with_credits = dict(list(movie_data_all.items()) + list(movie_data_credits.items()))
+
+        return movie_data_with_credits
     else:
         return {"error": "The Movie you requested is not on the Database."}
 

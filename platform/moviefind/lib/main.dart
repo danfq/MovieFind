@@ -26,7 +26,10 @@ class _MainState extends State<Main> {
                   logo: Image.asset(
                     "images/logo.png",
                   ),
-                  navigator: Home(),
+                  navigator: WillPopScope(
+                    child: Home(),
+                    onWillPop: () async => false,
+                  ),
                   backgroundColor: Colors.white,
                   durationInSeconds: 4,
                 ),

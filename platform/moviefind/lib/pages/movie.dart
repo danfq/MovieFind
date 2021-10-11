@@ -17,12 +17,13 @@ class Movie extends StatefulWidget {
 class _MovieState extends State<Movie> {
   @override
   Widget build(BuildContext context) {
-    final Size deviceParameters = MediaQuery.of(context).size;
-
     final data = ModalRoute.of(context)!.settings.arguments as Map;
 
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.black, //change your color here
+        ),
         title: Text(
           Strings.textAppName,
           style: Styles.textStylePageTitle,
@@ -30,25 +31,27 @@ class _MovieState extends State<Movie> {
         centerTitle: true,
         backgroundColor: AppColors.colorBackgroundAppBar,
       ),
-      body: Container(
-        height: deviceParameters.height,
-        width: deviceParameters.width,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("images/background.png"),
-            fit: BoxFit.cover,
+      body: SafeArea(
+        child: Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("images/background.png"),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: FutureBuilder(
+              future: MovieData.getMovieData(data["movieQuery"]),
+              builder: (BuildContext context,
+                  AsyncSnapshot<Map<String, dynamic>> snapshot) {
+                if (snapshot.hasData) {
+                  return Data.dataHolder(context, snapshot.data!);
+                } else {
+                  return LoadingEffect.loadingShimmer();
+                }
+              },
+            ),
           ),
-        ),
-        child: FutureBuilder(
-          future: MovieData.getMovieData(data["movieQuery"]),
-          builder: (BuildContext context,
-              AsyncSnapshot<Map<String, dynamic>> snapshot) {
-            if (snapshot.hasData) {
-              return Data.dataHolder(snapshot.data!);
-            } else {
-              return LoadingEffect.loadingShimmer();
-            }
-          },
         ),
       ),
       bottomNavigationBar: Misc.bottomCredits(),

@@ -37,4 +37,32 @@ class Styles {
       ),
     );
   }
+
+  static const textDataTitle = TextStyle(
+      color: Colors.white, fontFamily: 'Montserrat_Semi_Bold', fontSize: 22.0);
+
+  static const textDataSeparator = Text(" | ",
+      style: TextStyle(
+          color: Colors.white, fontFamily: 'Montserrat_Light', fontSize: 22.0));
+
+  static const textRatingAndDurationIndicator = TextStyle(
+      color: Colors.white, fontFamily: 'Montserrat_Regular', fontSize: 22.0);
+
+  static const textRatingAndDuration = TextStyle(
+      color: Colors.white, fontFamily: 'Montserrat_Light', fontSize: 20.0);
+
+  static const textDataReleaseDate = TextStyle(
+      color: Colors.white, fontFamily: 'Montserrat_Light', fontSize: 22.0);
+
+  static const textDataPlot = TextStyle(
+      color: Colors.white, fontFamily: 'Montserrat_Regular', fontSize: 18.0);
+
+  static const textCastCharacter = TextStyle(
+      color: Colors.white,
+      fontSize: 14.0,
+      fontFamily: 'Montserrat_Regular',
+      fontWeight: FontWeight.bold);
+
+  static const textCastActor = TextStyle(
+      color: Colors.white, fontSize: 12.0, fontFamily: 'Montserrat_Regular');
 }
